@@ -1,5 +1,5 @@
 # EMC_VNX_Monitoring
-This project is a script and template for monitor EMC VNX series product by Iman Mir <iman.mir@gmail.com>
+This project is a pyhton script and a zabbix template for monitor EMC VNX series product by Iman Mir <iman.mir@gmail.com>
 Under GNU GPL licence
 ## Features
 * Realtime monitor without any addional license
