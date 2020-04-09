@@ -9,7 +9,7 @@ Under GNU GPL licence
 * monitor disk status (remove or failed)
 * montior luns usage and health
 * monitor hardware I/O ports
-* monitor SP status , tempration , ....
+* monitor SP status , temperature , ....
 
 ## Building
 Install naviseccli and update emc_clarrion.py Line 13 NAVICLI={naviseccli path}
