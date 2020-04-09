@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2020-04-09T17:37:04Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template EMC Clariion</template>
+            <name>Template EMC Clariion</name>
+            <templates>
+                <template>
+                    <name>Template Module ICMP Ping</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>EMC::Cache</name>
+                </application>
+                <application>
+                    <name>EMC::Disk State</name>
+                </application>
+                <application>
+                    <name>EMC::Environment</name>
+                </application>
+                <application>
+                    <name>EMC::Information</name>
+                </application>
+                <application>
+                    <name>EMC::LUNs</name>
+                </application>
+                <application>
+                    <name>EMC::Ports</name>
+                </application>
+                <application>
+                    <name>EMC::Storage Pool</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Agent Revision</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--agent&quot;, &quot;--item&quot;, &quot;Agent Rev&quot;]</key>
+                    <delay>86400</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Model Type</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--agent&quot;, &quot;--item&quot;, &quot;Model Type&quot;]</key>
+                    <delay>86400</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Serial No</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--agent&quot;, &quot;--item&quot;, &quot;Serial No&quot;]</key>
+                    <delay>86400</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Model</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--agent&quot;, &quot;--item&quot;, Model]</key>
+                    <delay>86400</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Dirty Cache Pages</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--cache&quot;, &quot;--item&quot;, &quot;Dirty Cache Pages (MB)&quot;]</key>
+                    <delay>1200</delay>
+                    <units>MB</units>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SPA Read Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SPA Read Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SPA Write Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SPA Write Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{str(Enabled)}=0</expression>
+                            <name>{HOST.NAME} SPA Write Cache is not ready</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>SPB Read Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SPB Read Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SPB Write Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SPB Write Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{str(Enabled)}=0</expression>
+                            <name>{HOST.NAME} SPB Write Cache is not ready</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>SP Read Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SP Read Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SP Write Cache State</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--cache&quot;, &quot;--item&quot;, &quot;SP Write Cache State&quot;]</key>
+                    <delay>1200</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Cache</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SP Busy</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--spbusy&quot;, &quot;--item&quot;, &quot;Prct Busy&quot;]</key>
+                    <delay>3000</delay>
+                    <value_type>FLOAT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>SP Idle</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--spbusy&quot;, &quot;--item&quot;, &quot;Prct Idle&quot;]</key>
+                    <delay>3000</delay>
+                    <value_type>FLOAT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>Overall state</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;{$EMCUSER}&quot; , &quot;{$EMCPASS}&quot;,&quot;--faults&quot;]</key>
+                    <delay>600</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{str(Faulted)}=1</expression>
+                            <name>{HOST.NAME}  Overall State is not Ok</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>Data Gathering Status</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;{$EMCUSER}&quot; , &quot;{$EMCPASS}&quot;,&quot;--gather&quot; , &quot;&amp;&quot;]</key>
+                    <delay>500</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <applications>
+                        <application>
+                            <name>EMC::Information</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{str(OK)}=0</expression>
+                            <name>Data Gathering Is Not OK</name>
+                            <priority>HIGH</priority>
+                            <description>Any other item is depending on this. If its not working, you will not receive any fresh data.</description>
+                            <type>MULTIPLE</type>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Disks</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--disk&quot;, &quot;--item&quot;, &quot;discovery&quot;]</key>
+                    <delay>700</delay>
+                    <lifetime>1d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#NAME} State</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--disk&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;State&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Disk State</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{str(Removed)}=1</expression>
+                                    <name>{HOST.NAME} Disk {#NAME} changed State To Removed</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>LUNs</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--lun&quot;, &quot;--item&quot;, &quot;discovery&quot;]</key>
+                    <delay>700</delay>
+                    <lifetime>1d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#NAME} LUN Capacity</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--lun&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;LUN Capacity(Megabytes)&quot;]</key>
+                            <delay>180</delay>
+                            <value_type>FLOAT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::LUNs</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Raid Type</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--lun&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;RAID Type&quot;]</key>
+                            <delay>180</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::LUNs</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} State</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--lun&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;State&quot;]</key>
+                            <delay>180</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::LUNs</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Ports</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--ports&quot;, &quot;--item&quot;, &quot;discovery&quot;]</key>
+                    <delay>700</delay>
+                    <lifetime>1d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#NAME} Link Status</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--ports&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Link Status&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Ports</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Port Status</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--ports&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Port Status&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Ports</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Speed</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--ports&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Speed Value&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Ports</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Power And Temperature</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--item&quot;, &quot;discovery&quot;]</key>
+                    <delay>700</delay>
+                    <lifetime>1d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#NAME} Power Present</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Power Present&quot;]</key>
+                            <delay>700</delay>
+                            <units>watt</units>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Power Rolling Average</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Power Rolling Average&quot;]</key>
+                            <delay>600</delay>
+                            <value_type>FLOAT</value_type>
+                            <units>watt</units>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Power Status</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Power Status&quot;]</key>
+                            <delay>700</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{regexp(Valid,240)}=0&#13;
+and&#13;
+{strlen()}&lt;&gt;0</expression>
+                                    <name>{HOST.NAME} Power Failure on {#NAME}</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Temp Present</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Temp Present&quot;]</key>
+                            <delay>700</delay>
+                            <units>°C</units>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Temperature Rolling Average</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Temp Rolling Average&quot;]</key>
+                            <delay>600</delay>
+                            <value_type>FLOAT</value_type>
+                            <units>°C</units>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Temp Status</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--powertemp&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Temp Status&quot;]</key>
+                            <delay>600</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Environment</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{regexp(Valid,240)}=0&#13;
+and&#13;
+{strlen()}&lt;&gt;0</expression>
+                                    <name>{HOST.NAME} Temperature Failure on {#NAME}</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Storage Pools</name>
+                    <type>EXTERNAL</type>
+                    <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--storagepool&quot;, &quot;--item&quot;, &quot;discovery&quot;]</key>
+                    <delay>700</delay>
+                    <lifetime>1d</lifetime>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>{#NAME} Available Capacity Gb</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Available Capacity (GBs)&quot;]</key>
+                            <delay>360</delay>
+                            <trends>270d</trends>
+                            <value_type>FLOAT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Consumed Capacity Gb</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Consumed Capacity (GBs)&quot;]</key>
+                            <delay>300</delay>
+                            <value_type>FLOAT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Percent Full</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Percent Full&quot;]</key>
+                            <delay>300</delay>
+                            <value_type>FLOAT</value_type>
+                            <units>%</units>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} State</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;State&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{regexp(Ready)}=0&#13;
+and&#13;
+{strlen()}&lt;&gt;0</expression>
+                                    <name>Storage pool State Is not Ready</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Status</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; ,&quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Status&quot;]</key>
+                            <delay>300</delay>
+                            <trends>0</trends>
+                            <value_type>TEXT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <expression>{regexp(OK)}=0&#13;
+and&#13;
+{strlen()}&lt;&gt;0</expression>
+                                    <name>Storage pool Status Is not OK</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>{#NAME} Total Subscribed Capacity Gb</name>
+                            <type>EXTERNAL</type>
+                            <key>emc_clariion.py[&quot;{HOST.CONN}&quot; , &quot;--storagepool&quot;, &quot;--name&quot;, &quot;{#NAME}&quot;, &quot;--item&quot;, &quot;Total Subscribed Capacity (GBs)&quot;]</key>
+                            <delay>300</delay>
+                            <value_type>FLOAT</value_type>
+                            <applications>
+                                <application>
+                                    <name>EMC::Storage Pool</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$EMCPASS}</macro>
+                    <value>Dms@8910</value>
+                </macro>
+                <macro>
+                    <macro>{$EMCUSER}</macro>
+                    <value>admin</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
